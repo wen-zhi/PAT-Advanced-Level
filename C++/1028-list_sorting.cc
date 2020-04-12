@@ -5,14 +5,9 @@
 
 
 struct Student {
-    Student() = default;
-    Student(const std::string id,
-            const std::string name,
-            const std::string grade):
-        id(id), name(name), grade(grade) {}
     std::string id;
     std::string name;
-    std::string grade;
+    int grade;
 };
 
 
@@ -41,10 +36,11 @@ int main() {
     std::cin >> n_student >> col;
 
     std::vector<Student> students;
-    std::string id, name, grade;
+    std::string id, name;
+    int grade;
     for (int i=0; i<n_student; ++i) {
         std::cin >> id >> name >> grade;
-        students.push_back(Student(id, name, grade));
+        students.push_back({id, name, grade});
     }
 
     using std::placeholders::_1;
