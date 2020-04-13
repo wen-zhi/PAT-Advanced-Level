@@ -4,7 +4,8 @@
 
 long int
 median(std::vector<long int> &seq1,
-       std::vector<long int> &seq2) {
+       std::vector<long int> &seq2)
+{
     auto mid_pos = (seq1.size() + seq2.size() + 1) / 2;
     decltype(mid_pos) pos = 0;
     auto iter1 = seq1.begin(), iter2 = seq2.begin();
