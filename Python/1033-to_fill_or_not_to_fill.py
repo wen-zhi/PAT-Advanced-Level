@@ -1,9 +1,3 @@
-# idea:
-# (`max_dist` is the maximum distance that the current station can reach)
-# 1. find the next cheaper station within `max_dist` as the `next_station`
-# 2. if there is no such station, choose the station just before the `max_dist`
-#    as the `next_station` (i.e. the most closest to `max_dist`)
-
 from collections import namedtuple
 
 
