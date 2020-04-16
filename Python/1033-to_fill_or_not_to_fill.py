@@ -7,11 +7,12 @@ Station = namedtuple('Station', ['price', 'dist'])
 def route(capacity, dst_dist, dist_per_unit, stations):
     stations.sort(key=lambda x: x.dist)
     max_dist, curr_station = 0, 0
-    total_price = 0.
-    traveled_dist = 0
+    traveled_dist, total_price = 0, 0.
+
     if stations[0].dist != 0:
         print(f'The maximum travel distance = 0.00')
         return
+
     while True:
         curr_price, curr_dist = stations[curr_station]
         max_dist = curr_dist + capacity * dist_per_unit
@@ -27,12 +28,6 @@ def route(capacity, dst_dist, dist_per_unit, stations):
             next_station += 1
         else:
             if next_station == len(stations):
-                if max_dist >= dst_dist:
-                    total_price += (dst_dist -
-                                    traveled_dist) / dist_per_unit * curr_price
-                    print(f'{total_price:.2f}')
-                else:
-                    print(f'The maximum travel distance = {max_dist:.2f}')
                 break
             # using the station closest to `max_dist` as `next_station`
             next_station -= 1  # the most closest to max_dist
@@ -40,6 +35,13 @@ def route(capacity, dst_dist, dist_per_unit, stations):
                             traveled_dist) / dist_per_unit * curr_price
             traveled_dist = max_dist
         curr_station = next_station
+
+    if max_dist >= dst_dist:
+        total_price += (dst_dist -
+                        traveled_dist) / dist_per_unit * curr_price
+        print(f'{total_price:.2f}')
+    else:
+        print(f'The maximum travel distance = {max_dist:.2f}')
 
 
 if __name__ == '__main__':

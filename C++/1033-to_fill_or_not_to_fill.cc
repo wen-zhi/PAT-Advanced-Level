@@ -29,6 +29,7 @@ cheapest_route(double capacity, double dst_dist, double dist_per_unit,
         std::size_t next_station = curr_station + 1;
         while (next_station < stations.size() &&
                stations[next_station].dist <= max_dist) {
+            // find the next cheaper station as `next_station`
             if (stations[next_station].price < curr_price) {
                 total_price += (stations[next_station].dist -
                                 traveled_dist) / dist_per_unit * curr_price;
@@ -37,6 +38,8 @@ cheapest_route(double capacity, double dst_dist, double dist_per_unit,
             }
             ++next_station;
         }
+        // if there is no cheaper station,
+        // using the station closest to `max_dist` as `next_station`
         if (next_station < stations.size() &&
             stations[next_station].dist > max_dist) {
             --next_station;
