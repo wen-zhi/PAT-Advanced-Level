@@ -1,4 +1,9 @@
 
+* [1032 Sharing](#1032-sharing)
+* [1033 To Fill or Not to Fill](#1033-to-fill-or-not-to-fill)
+* [1034 Head of a Gang](#1034-head-of-a-gang)
+* [1038 Recover the Smallest Number](#1038-recover-the-smallest-number)
+
 # 1032 Sharing
 
 将*链表 A* 的每个结点均标记为**已访问**，那么在遍历*链表 B* 时遇到的第一个**已访问过**的节点就是它们的第一个共同结点。
