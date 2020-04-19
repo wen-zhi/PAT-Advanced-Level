@@ -6,6 +6,7 @@
 * [1040 Longest Symmetric String](#1040-longest-symmetric-string)
 * [1043 Is It a Binary Search Tree](#1043-is-it-a-binary-search-tree)
 * [1045 Favorite Color Stripe](#1045-favorite-color-stripe)
+* [1049 Counting Ones](#1049-counting-ones)
 
 ## 1032 Sharing
 
@@ -73,3 +74,48 @@ for j = 1,2,...,n:
     L[i] = 1 + max({L[i]: i < j})
 ```
 这种从最小子问题自底向上逐渐扩大至目标问题的过程被称作为**动态规划**。
+
+## 1049 Counting Ones
+
+需要耐心寻找规律，无他。要点是分析每位 (个位、十位、百位...) 上 `1` 出现的次数。规律为：
+```
+# c 位置上可出现 1 的个数为：
+
+      ↓
+n = abcde      left=ab, digit=c, right=de, base=100
+
+if digit == 0:
+    ones = left * base
+if digit == 1:
+    ones = left * base + right + 1
+if digit > 1:
+    ones = (left + 1) * base
+```
+以 `315` 为例：
+```
+    个位：
+           ↓
+         315      left=31, digit=5, right=0, base=1
+    个位上包含 1 的数为：
+        - 1                     # 1
+        - 11, 21, 31, ..., 311  # 31
+    个位上 1 的总个数 = (left + 1) * base
+                     = (31 + 1) * 1
+
+    十位：
+          ↓
+         315      left=3, digit=1, right=5, base=10
+    十位上包含 1 的数为：
+        - 10~19, 110~119, 210~219  # (3 * 10)
+        - 310~315                  # 5 + 1
+    十位上 1 的总个数 = (left * base) + right + 1 
+                     = (3 * 10) + 5 + 1
+
+    百位：
+         ↓
+         315      left=0, digit=3, right=15, base=100
+    百位上包含 1 的数为：
+        - 100~199  # 1 * 100
+    百位上 1 的总个数 = (left + 1) * base 
+                     = (0 + 1) * 100 
+```
