@@ -7,6 +7,7 @@
 * [1043 Is It a Binary Search Tree](#1043-is-it-a-binary-search-tree)
 * [1045 Favorite Color Stripe](#1045-favorite-color-stripe)
 * [1049 Counting Ones](#1049-counting-ones)
+* [1053 Path of Equal Weight](#1053-path-of-equal-weight)
 
 ## 1032 Sharing
 
@@ -119,3 +120,8 @@ if digit > 1:
     百位上 1 的总个数 = (left + 1) * base 
                      = (0 + 1) * 100 
 ```
+
+## 1053 Path of Equal Weight
+
+树结构其实一个简单的图。类似本题这样的树结构 (树的孩子结点个数不固定) 使用图来表示更加便捷。使用 BFS 即可计算根到叶子节点的路径长度。在 BFS 的过程中使用 `pre[N]` 数组记录每个节点的先驱节点，最后便可通过 `pre` 还原出路径。
+
