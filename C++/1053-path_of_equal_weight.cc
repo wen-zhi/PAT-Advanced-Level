@@ -29,6 +29,7 @@ path_of_equal_weight(Graph &graph, int target_w)
     path_weights[0] = weights[0];
     std::queue<int> Queue;
     Queue.push(0);
+    // BFS
     while (!Queue.empty()) {
         int u = Queue.front();
         Queue.pop();
