@@ -1,13 +1,13 @@
 
 
 def find_coins(coins, amount):
-    memory = set()
+    memo = set()
     solutions = []
     for v1 in coins:
         v2 = amount - v1
-        if v2 in memory:
+        if v2 in memo:
             solutions.append(sorted([v1, v2]))
-        memory.add(v1)
+        memo.add(v1)
     return solutions
 
 

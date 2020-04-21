@@ -9,16 +9,16 @@ std::vector<std::pair<int, int>>
 find_coins(const std::vector<int> &coins, int amount)
 {
     std::vector<std::pair<int, int>> solutions;
-    std::unordered_set<int> memory;
+    std::unordered_set<int> memo;
     for (auto v1 : coins) {
-        auto v2_iter = memory.find(amount - v1);
-        if (v2_iter != memory.end()) {
+        auto v2_iter = memo.find(amount - v1);
+        if (v2_iter != memo.end()) {
             if (v1 < *v2_iter) 
                 solutions.push_back(std::make_pair(v1, *v2_iter));
             else
                 solutions.push_back(std::make_pair(*v2_iter, v1));
         }
-        memory.insert(v1);
+        memo.insert(v1);
     }
     return solutions;
 }
