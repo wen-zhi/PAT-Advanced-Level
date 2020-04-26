@@ -9,6 +9,7 @@
 * [1049 Counting Ones](#1049-counting-ones)
 * [1053 Path of Equal Weight](#1053-path-of-equal-weight)
 * [1057	Stack](#1057-stack)
+* [1059 Prime Factors](#1059-prime-factors)
 
 ## 1032 Sharing
 
@@ -150,3 +151,7 @@ if digit > 1:
 C++ 中 `std::multiset` 就可以满足这样的要求。它是一个有序的数据结构，插入、删除都是对数时间复杂度。因此使用 `std::multiset` 来实现 `Left` 和 `Right` 即可。
 
 另外一种思路是统计每个元素出现的频率，然后使用[二进制索引树](https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/)来高效地计算累积频率为 N/2 (元素总数为偶数时) 或 (N+1)/2 (元素总数为奇数时) 所对应的元素。
+
+## 1059 Prime Factors
+
+递归地分解一个数，采用 `memoization` 技巧记录已确定是质数的数以避免重复计算。
