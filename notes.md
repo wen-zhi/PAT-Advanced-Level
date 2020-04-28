@@ -10,6 +10,7 @@
 * [1053 Path of Equal Weight](#1053-path-of-equal-weight)
 * [1057	Stack](#1057-stack)
 * [1059 Prime Factors](#1059-prime-factors)
+* [1064 Complete Binary Search Tree](#1064-complete-binary-search-tree)
 
 ## 1032 Sharing
 
@@ -155,3 +156,11 @@ C++ 中 `std::multiset` 就可以满足这样的要求。它是一个有序的�
 ## 1059 Prime Factors
 
 递归地分解一个数，采用 `memoization` 技巧记录已确定是质数的数以避免重复计算。
+
+## 1064 Complete Binary Search Tree
+
+完全二叉树的一个特征是，可以使用一个数组来存储，只要自上而下、从左至右对其所有结点进行编号即可。同时，给定一个结点编号 `i`，可以很方便地得到其孩子结点 (`lchild: 2 * i + 1, rchild: 2 * i + 2`)。因此，我们可仅对其编号进行中序遍历，得到的便是**结点编号**的中序遍历 (记为 `inorder_idx`)。
+
+题目中给出的是完全二叉搜索树，因此它的中序遍历必然是有序的，对给出的序列排序即可得到该树的**结点值**的中序遍历 (记为 `inorder`)。
+
+最后，通过 `inorder_idx` 和 `inorder` 即可复原该树。
