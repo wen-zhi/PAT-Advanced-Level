@@ -37,14 +37,12 @@ int main() {
         permutation, n_time);
     
     std::vector<std::string> card_type = {"S", "H", "C", "D", "J"};
-    for (auto iter = shuffled_cards.begin();
-         iter != shuffled_cards.end()-1;
-         ++iter)
-    {
-        std::cout << card_type[*iter / 13] << *iter % 13 + 1 << ' ';
+    auto iter = shuffled_cards.begin();
+    std::cout << card_type[*iter / 13] << *iter % 13 + 1;
+    for (++iter; iter != shuffled_cards.end(); ++iter) {
+        std::cout << ' ' << card_type[*iter / 13] << *iter % 13 + 1;
     }
-    std::cout << card_type[shuffled_cards.back() / 13]
-              << shuffled_cards.back() % 13 + 1 << '\n';
+    std::cout << '\n';
 
     return 0;
 }

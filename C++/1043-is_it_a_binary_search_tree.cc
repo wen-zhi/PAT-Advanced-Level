@@ -50,10 +50,11 @@ int main() {
     }
     if (post.size() == N) {
         std::cout << "YES\n";
-        for (auto iter=post.begin(); iter!=post.end()-1; ++iter) {
-            std::cout << *iter << ' ';
+        auto iter = post.begin();
+        std::cout << *iter;
+        for (++iter; iter!=post.end(); ++iter) {
+            std::cout << ' ' << *iter;
         }
-        std::cout << post.back() << '\n';
     } else {
         std::cout << "NO\n";
     }

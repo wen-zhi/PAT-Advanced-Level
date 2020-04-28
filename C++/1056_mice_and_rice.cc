@@ -76,10 +76,12 @@ int main() {
     }
     
     std::vector<int> ranks = mice_and_rice(order, mouse, group_size);
-    for (auto iter=ranks.begin(); iter!=ranks.end()-1; ++iter) {
-        std::cout << *iter << ' ';
+    auto iter = ranks.begin();
+    std::cout << *iter;
+    for (++iter; iter!=ranks.end(); ++iter) {
+        std::cout << ' ' << *iter;
     }
-    std::cout << ranks.back() << '\n';
+    std::cout << '\n';
 
     return 0;
 }
