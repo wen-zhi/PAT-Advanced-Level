@@ -1,3 +1,4 @@
+import sys
 
 
 def swap_count(nums):
@@ -26,6 +27,5 @@ def swap_count(nums):
 
 
 if __name__ == '__main__':
-    _ = input()
-    nums = [int(i) for i in input().split()]
+    nums = [int(i) for i in sys.stdin.read().split()][1:]
     print(swap_count(nums))
