@@ -15,6 +15,7 @@
 * [1067 Sort with Swap(0, i)](#1067-sort-with-swap0-i)
 * [1068 Find More Coins](#1068-find-more-coins)
 * [1072 Gas Station](#1072-gas-station)
+* [1076 Forwards on Weibo](#1076-forwards-on-weibo)
 
 ## 1032 Sharing
 
@@ -233,3 +234,14 @@ else if balance_factor < -1:  # (3) or (4)
 加油站也是图中的结点，但由于加油站的编号并非纯数字，因此采用字典 (Python: `dict`, C++: `map`) 结构来构建图的邻接表最为方便，但这么做会超时 (无论使用 C++ 还是 Python)。
 
 因此只能选择将加油站的编号 `G1, G2, ...` 转换为整数，即 `n_house + 1, n_house + 2, ...`，这样便可以采用数组结构来构建图的邻接表，加快访问速度。
+
+## 1076 Forwards on Weibo
+
+这可能是目前最简单的分值为 `30` 的题目？
+
+只需要实现图的 BFS 算法即可，因为 BFS 可以给出层次信息。
+
+换个略显复杂的角度来说，该问题等价于在所有边长均为 1 的图上求最短路径问题——BFS 正是适用于这种情形 (所有边长均等) 的最短路径算法。
+
+C++ 性能优化：  
+由于输入可能会包含很多较长的行，因此可先将一整行读入到内存中，再使用 `std::istringstream` 对象在内存上进行读入操作以避免频繁地访问外存。
