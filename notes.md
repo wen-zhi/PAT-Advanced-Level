@@ -16,6 +16,7 @@
 * [1068 Find More Coins](#1068-find-more-coins)
 * [1072 Gas Station](#1072-gas-station)
 * [1076 Forwards on Weibo](#1076-forwards-on-weibo)
+* [1079 Total Sales of Supply Chain](#1079-total-sales-of-supply-chain)
 
 ## 1032 Sharing
 
@@ -245,3 +246,9 @@ else if balance_factor < -1:  # (3) or (4)
 
 C++ 性能优化：  
 由于输入可能会包含很多较长的行，因此可先将一整行读入到内存中，再使用 `std::istringstream` 对象在内存上进行读入操作以避免频繁地访问外存。
+
+## 1079 Total Sales of Supply Chain
+
+每个结点最多只有一个前继，且无环，因此这个网络也是一棵树。只需要使用 BFS 获取到达叶子结点的路径长度即可。当然，在 BFS 的过程中就计算各个结点的价格更为高效与便捷。当到达叶子结点时，更新总销售额即可。
+
+树其实是一种简单的图，因此像这种孩子结点个数不固定的树可以用图来表示。实现起来会简单些。
